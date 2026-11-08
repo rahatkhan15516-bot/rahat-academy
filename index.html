@@ -3,87 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>রাহাত একাডেমি — এইচএসসি ২০২৭ ডিজিটাল এডুকেশনাল প্ল্যাটফর্ম</title>
+  <title>রাহাত একাডেমি — HSC 2027 এডুকেশনাল ডিজিটাল মার্কেটপ্লেস</title>
   
-  <!-- SEO & Open Graph Meta Tags -->
-  <meta name="description" content="মো: রাহাত খান পরিচালিত রাহাত একাডেমি। এইচএসসি ২০২৭ সকল বিষয়ের অধ্যায়ভিত্তিক প্রিমিয়াম রিভিশন ও লেকচার শিট।">
+  <meta name="description" content="মো: রাহাত খান পরিচালিত রাহাত একাডেমি। এইচএসসি ২০২৭ বিজ্ঞানের সকল বিষয়ের অধ্যায়ভিত্তিক প্রিমিয়াম রিভিশন ও লেকচার শিট।">
   <meta property="og:title" content="রাহাত একাডেমি — স্মার্ট প্রস্তুতি, গুছানো নোট, আত্মবিশ্বাসী পরীক্ষা">
   <meta property="og:description" content="বাংলা, ইংরেজি, আইসিটি ও বিজ্ঞানের প্রতিটি বিষয়ের টপিকভিত্তিক স্পেশাল রিভিশন পিডিএফ।">
   <meta property="og:type" content="website">
 
-  <!-- PWA Manifest & Theme -->
-  <meta name="theme-color" content="#071952">
-  <link rel="manifest" href="manifest.json">
-
-  <!-- Tailwind CSS & Professional Bengali Font -->
+  <!-- Tailwind CSS & Official Supabase Cloud Client Library -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <style>
-    body { font-family: 'Hind Siliguri', -apple-system, sans-serif; background-color: #050C9C; }
-    .font-brand { font-family: 'Cinzel', serif; }
+    body { font-family: 'Hind Siliguri', -apple-system, sans-serif; background-color: #f8fafc; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    
-    /* থার্ড পার্টি বা বিজ্ঞাপন ব্লকার */
-    a[href*="paste.page"], div[class*="paste-page"], .paste-page-badge, footer:last-of-type, body > div:last-child {
-      display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important;
-      height: 0 !important; width: 0 !important; overflow: hidden !important;
-    }
   </style>
 </head>
-<body class="bg-[#050C9C]/5 text-slate-800 antialiased pb-24 selection:bg-[#071952] selection:text-[#FABC3F]">
+<body class="text-slate-800 antialiased pb-24 selection:bg-blue-900 selection:text-amber-400">
 
-  <!-- ========================================== -->
-  <!-- 1. TOP PREMIUM NAVBAR                      -->
-  <!-- ========================================== -->
-  <header class="sticky top-0 z-40 bg-[#071952] text-white border-b border-[#088395]/30 shadow-xl">
+  <!-- TOP NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-slate-900 text-white border-b border-slate-800 shadow-lg">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center space-x-3 cursor-pointer" onclick="switchMainView('home')">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#FABC3F] to-[#FFE79A] flex items-center justify-center text-[#071952] font-black text-xl shadow-md border border-[#FABC3F]/40 font-brand">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 flex items-center justify-center text-slate-950 font-black text-xl shadow-md border border-amber-200">
           R
         </div>
         <div>
           <h1 id="brandNameNav" class="text-lg font-bold tracking-tight text-white leading-tight">রাহাত একাডেমি</h1>
-          <p id="ownerNameNav" class="text-[11px] text-[#FABC3F] font-semibold">পরিচালক: মো: রাহাত খান</p>
+          <p id="ownerNameNav" class="text-[11px] text-amber-400 font-semibold">পরিচালক: মো: রাহাত খান</p>
         </div>
       </div>
 
       <div class="flex items-center space-x-2">
-        <!-- PWA Install Prompt Button -->
-        <button id="pwaInstallBtn" class="hidden text-xs font-bold px-3 py-1.5 rounded-lg bg-[#088395] hover:bg-[#088395]/80 text-white transition flex items-center space-x-1 shadow">
-          <span>📲 অ্যাপ ইন্সটল</span>
-        </button>
-
-        <button onclick="switchMainView('studentDashboard')" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-100 border border-white/20 transition">
+        <button onclick="switchMainView('studentDashboard')" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
           আমার লাইব্রেরি
         </button>
-        <button onclick="openAdminModal()" class="text-xs font-bold px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#FABC3F] to-[#E3A857] hover:brightness-105 text-[#071952] shadow transition flex items-center">
-          <span class="w-2 h-2 rounded-full bg-[#071952] mr-1.5 animate-pulse"></span>
+        <button onclick="openAdminModal()" class="text-xs font-bold px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 shadow transition flex items-center">
+          <span class="w-2 h-2 rounded-full bg-slate-950 mr-1.5 animate-pulse"></span>
           অ্যাডমিন প্যানেল
         </button>
       </div>
     </div>
   </header>
 
-  <!-- ========================================== -->
-  <!-- 2. HOME VIEW (MAIN STOREFRONT)             -->
-  <!-- ========================================== -->
+  <!-- HOME VIEW -->
   <div id="homeView">
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-b from-[#071952] via-[#0B2447] to-[#071952] text-white pt-12 pb-16 px-4 text-center relative overflow-hidden border-b border-[#088395]/20">
+    <section class="bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white pt-12 pb-16 px-4 text-center relative overflow-hidden">
       <div class="max-w-4xl mx-auto space-y-4 relative z-10">
-        <div class="inline-flex items-center space-x-2 bg-[#FABC3F]/10 border border-[#FABC3F]/30 text-[#FABC3F] text-xs px-3.5 py-1.5 rounded-full font-bold">
-          <span>🎯 এইচএসসি ২০২৭ স্পেশাল এডুকেশনাল মার্কেটপ্লেস</span>
+        <div class="inline-flex items-center space-x-2 bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs px-3.5 py-1.5 rounded-full font-bold">
+          <span>🎯 এইচএসসি ২০২৭ স্পেশাল ডিজিটাল ক্যাটালগ</span>
         </div>
         <h2 id="heroHeadingText" class="text-2xl md:text-5xl font-extrabold leading-snug tracking-tight text-white">
           স্মার্ট প্রস্তুতি, গুছানো নোট,<br class="hidden sm:inline"> আত্মবিশ্বাসী পরীক্ষা।
         </h2>
-        <p id="heroSubheadingText" class="text-slate-200 text-xs md:text-base max-w-2xl mx-auto leading-relaxed">
-          বাংলা, ইংরেজি, আইসিটি ও বিজ্ঞানের প্রতিটি বিষয়ের টপিকভিত্তিক প্রিমিয়াম রিভিশন শিট। অনলাইনে সুরক্ষিতভাবে পড়ুন অথবা ডাউনলোড করে অফলাইনে রিভিশন দিন।
+        <p id="heroSubheadingText" class="text-slate-300 text-xs md:text-base max-w-2xl mx-auto leading-relaxed">
+          বাংলা, ইংরেজি, আইসিটি ও বিজ্ঞানের প্রতিটি বিষয়ের টপিকভিত্তিক প্রিমিয়াম রিভিশন শিট। অনলাইনে সুরক্ষিতভাবে পড়ুন অথবা সরাসরি ক্যাশে সংগ্রহ করুন।
         </p>
 
-        <!-- Search Bar -->
         <div class="max-w-lg mx-auto pt-4">
           <div class="relative">
             <input
@@ -91,7 +69,7 @@
               id="searchInput"
               onkeyup="filterCatalog()"
               placeholder="অধ্যায় বা বিষয়ের নাম দিয়ে খুঁজুন (যেমন: ভেক্টর, অপরিচিতা, গতিবিদ্যা)..."
-              class="w-full pl-4 pr-10 py-3.5 rounded-2xl text-slate-900 text-sm shadow-2xl focus:outline-none focus:ring-2 focus:ring-[#FABC3F] placeholder:text-slate-400 bg-white"
+              class="w-full pl-4 pr-10 py-3.5 rounded-2xl text-slate-900 text-sm shadow-2xl focus:outline-none focus:ring-2 focus:ring-amber-400 placeholder:text-slate-400 bg-white"
             />
             <span class="absolute right-3.5 top-3.5 text-slate-400">🔍</span>
           </div>
@@ -99,149 +77,114 @@
       </div>
     </section>
 
-    <!-- Subject Filter Tabs -->
     <section class="sticky top-14 z-30 bg-white border-b border-slate-200 py-2.5 px-4 shadow-sm">
       <div id="subjectTabs" class="max-w-7xl mx-auto flex items-center space-x-2 overflow-x-auto no-scrollbar"></div>
     </section>
 
-    <!-- 151 Topics Catalog -->
     <main class="max-w-7xl mx-auto px-4 py-8 space-y-6">
       <div class="flex items-center justify-between border-b border-slate-200 pb-3">
         <div>
-          <h3 class="text-lg font-bold text-[#071952]">পাঠ্যসূচি ও রিভিশন শিট তালিকা</h3>
+          <h3 class="text-lg font-bold text-slate-900">পাঠ্যসূচি ও রিভিশন শিট তালিকা</h3>
           <p class="text-xs text-slate-500">এইচএসসি ২০২৭ — মোট ১৩টি পত্রের অধ্যায়ভিত্তিক ১৫১টি টপিক</p>
         </div>
-        <div class="flex items-center space-x-2">
-          <span class="text-xs bg-amber-50 text-[#071952] border border-[#FABC3F] px-3 py-1 rounded-full font-bold">
-            ডিফল্ট মূল্য: ৳<span id="defaultPriceBadge">30</span>
-          </span>
-        </div>
+        <span class="text-xs bg-amber-50 text-amber-800 border border-amber-300 px-3 py-1 rounded-full font-bold">
+          ডিফল্ট মূল্য: ৳<span id="defaultPriceBadge">30</span>
+        </span>
       </div>
 
       <div id="catalogContainer" class="space-y-6"></div>
     </main>
   </div>
 
-  <!-- ========================================== -->
-  <!-- 3. STUDENT DASHBOARD VIEW                  -->
-  <!-- ========================================== -->
+  <!-- STUDENT DASHBOARD VIEW -->
   <div id="studentDashboardView" class="hidden max-w-5xl mx-auto px-4 py-8 space-y-6">
     <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
-        <span class="text-xs font-bold text-[#C89B3C] uppercase tracking-wider">শিক্ষার্থী ড্যাশবোর্ড</span>
-        <h2 class="text-xl font-bold text-[#071952]">আমার লাইব্রেরি ও ডিভাইস নিয়ন্ত্রণ</h2>
-        <p class="text-xs text-slate-500">অনুমোদিত পিডিএফ পড়ুন অথবা ৩০ দিনের অফলাইন রিডিংয়ের জন্য সেভ করুন।</p>
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">শিক্ষার্থী পোর্টাল</span>
+        <h2 class="text-xl font-bold text-slate-900">আমার লাইব্রেরি ও অর্ডার ট্র্যাকিং</h2>
+        <p class="text-xs text-slate-500">আপনার অনুমোদিত পিডিএফ সমূহ এখানে সংরক্ষিত থাকে।</p>
       </div>
-      <button onclick="switchMainView('home')" class="text-xs font-bold px-4 py-2 bg-[#071952] text-white rounded-xl hover:bg-[#071952]/90 transition">
-        ← ক্যাটালগে ফিরুন
+      <button onclick="switchMainView('home')" class="text-xs font-bold px-4 py-2 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition">
+        ← বইয়ের ক্যাটালগে ফিরুন
       </button>
     </div>
 
-    <!-- Active Device Security Alert Box -->
-    <div class="bg-blue-50 border border-blue-200 rounded-2xl p-4 text-xs space-y-2">
-      <div class="flex items-center justify-between font-bold text-[#071952]">
-        <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span>সক্রিয় ডিভাইস সেশন: বর্তমান ফোন (Active Device)</span>
-        <span class="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded">সুরক্ষিত সংযোগ</span>
-      </div>
-      <p class="text-slate-600 leading-relaxed text-[11px]">
-        নিরাপত্তার স্বার্থে আপনার অ্যাকাউন্টটি একবারে শুধুমাত্র একটি ডিভাইসেই সক্রিয় থাকতে পারবে। নতুন কোনো ফোনে লগইন করলে বর্তমান ফোনটি স্বয়ংক্রিয়ভাবে অনলাইন অ্যাক্সেস হারাবে।
-      </p>
-    </div>
-
-    <!-- Student Entitlements (Unlocked PDFs) -->
     <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
-      <h3 class="text-base font-bold text-[#071952] flex items-center">
+      <h3 class="text-base font-bold text-slate-900 flex items-center">
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 mr-2"></span>
-        আমার অনুমোদিত শিট সমূহ (My Library)
+        পড়ার জন্য উন্মুক্ত পিডিএফ সমূহ (My Library)
       </h3>
       <div id="studentLibraryList" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
     </div>
 
-    <!-- Student Orders History -->
     <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
-      <h3 class="text-base font-bold text-[#071952] flex items-center">
+      <h3 class="text-base font-bold text-slate-900 flex items-center">
         <span class="w-2.5 h-2.5 rounded-full bg-blue-500 mr-2"></span>
-        অর্ডারের ইতিহাস (Order History)
+        আমার অর্ডারের বর্তমান অবস্থা (Order History)
       </h3>
       <div id="studentOrdersList" class="space-y-2.5"></div>
     </div>
   </div>
 
-  <!-- ========================================== -->
-  <!-- 4. SECURE PDF READER MODAL (ONLINE/OFFLINE)-->
-  <!-- ========================================== -->
+  <!-- SECURE PDF READER MODAL -->
   <div id="readerModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-2 sm:p-4">
     <div class="bg-white w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[90vh]">
-      <!-- Reader Header -->
-      <div class="bg-[#071952] text-white px-4 py-3 flex items-center justify-between shrink-0 border-b border-slate-800">
+      <div class="bg-slate-950 text-white px-4 py-3 flex items-center justify-between shrink-0 border-b border-slate-800">
         <div>
-          <span id="readerBadge" class="text-[10px] text-[#FABC3F] font-bold uppercase tracking-wider">সুরক্ষিত অনলাইন রিডার</span>
+          <span id="readerBadge" class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">সুরক্ষিত অনলাইন রিডার</span>
           <h4 id="readerTopicTitle" class="text-xs sm:text-sm font-bold truncate max-w-xs sm:max-w-md">অধ্যায় রিডার</h4>
         </div>
         <button onclick="closeModal('readerModal')" class="text-slate-400 hover:text-white font-bold text-lg p-1">✕</button>
       </div>
 
-      <!-- Watermarked Canvas Container -->
       <div class="relative flex-1 bg-slate-900 flex flex-col items-center justify-center select-none overflow-hidden p-2">
-        <!-- Floating Security Dynamic Watermark -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20 transform -rotate-12 z-20">
           <span class="text-red-500 font-black text-2xl text-center leading-relaxed">
             রাহাত একাডেমি • মো: রাহাত খান<br>কপি বা অননুমোদিত শেয়ারিং সম্পূর্ণ নিষিদ্ধ
           </span>
         </div>
-
         <div id="readerViewerContainer" class="w-full h-full flex flex-col items-center justify-center z-10 overflow-y-auto"></div>
       </div>
 
-      <!-- Reader Footer with Offline Cache Trigger -->
       <div class="p-3 bg-white border-t border-slate-200 flex items-center justify-between shrink-0">
-        <span class="text-[11px] text-slate-500">অনলাইন/অফলাইন রিডিং • কপিরাইট সংরক্ষিত</span>
-        <div class="flex space-x-2">
-          <button id="readerOfflineCacheBtn" onclick="saveForOfflineReading()" class="hidden py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl border border-slate-300 transition">
-            💾 ৩০ দিনের অফলাইন সেভ
-          </button>
-          <button id="readerCheckoutButton" onclick="switchFromPreviewToCheckout()" class="py-2 px-4 bg-[#071952] hover:bg-[#071952]/90 text-[#FABC3F] text-xs font-bold rounded-xl shadow transition">
-            সম্পূর্ণ শিট আনলক করুন
-          </button>
-        </div>
+        <span class="text-[11px] text-slate-500">অনলাইন রিডিং • কপিরাইট সংরক্ষিত</span>
+        <button id="readerCheckoutButton" onclick="switchFromPreviewToCheckout()" class="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl shadow transition">
+          সম্পূর্ণ শিট আনলক করুন
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- ========================================== -->
-  <!-- 5. CHECKOUT MODAL (ONLINE & CASH PAYMENTS) -->
-  <!-- ========================================== -->
+  <!-- CHECKOUT MODAL -->
   <div id="checkoutModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-3">
     <div class="bg-white w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
-      <div class="bg-[#071952] text-white px-5 py-3.5 flex items-center justify-between border-b border-slate-800">
+      <div class="bg-slate-900 text-white px-5 py-3.5 flex items-center justify-between border-b border-slate-800">
         <div>
-          <span class="text-[10px] text-[#FABC3F] font-bold uppercase tracking-wider">অর্ডার ও পেমেন্ট কনফার্মেশন</span>
+          <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">অর্ডার ও পেমেন্ট কনফার্মেশন</span>
           <h4 id="checkoutTitle" class="text-xs sm:text-sm font-bold truncate max-w-xs sm:max-w-md">টপিক নাম</h4>
         </div>
         <button onclick="closeModal('checkoutModal')" class="text-slate-400 hover:text-white font-bold text-lg">✕</button>
       </div>
 
       <div id="checkoutBody" class="p-5 space-y-4 overflow-y-auto">
-        <!-- Price Summary -->
         <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 flex items-center justify-between text-xs">
-          <span class="text-slate-600 font-semibold">নির্ধারিত মূল্য (১ বছর মেয়াদ):</span>
-          <span class="font-extrabold text-[#071952] text-base" id="checkoutAmountText">৳৩০</span>
+          <span class="text-slate-600 font-semibold">মোট প্রদেয় মূল্য:</span>
+          <span class="font-extrabold text-blue-700 text-base" id="checkoutAmountText">৳৩০</span>
         </div>
 
-        <!-- Payment Type Selector (Online vs Physical Cash) -->
         <div>
           <label class="block text-[11px] font-bold text-slate-700 mb-1.5">পেমেন্ট মেথড নির্বাচন করুন:</label>
           <div class="grid grid-cols-2 gap-2 mb-2">
-            <button type="button" id="typeOnlineBtn" onclick="setCheckoutType('online')" class="py-2.5 px-3 rounded-xl text-xs font-bold border-2 border-[#071952] bg-blue-50 text-[#071952] transition text-center shadow-sm">
-              📱 অনলাইন পেমেন্ট (ম্যানুয়াল)
+            <button type="button" id="typeOnlineBtn" onclick="setCheckoutType('online')" class="py-2.5 px-3 rounded-xl text-xs font-bold border-2 border-blue-600 bg-blue-50 text-blue-700 transition text-center shadow-sm">
+              📱 অনলাইন পেমেন্ট (বিকাশ/নগদ)
             </button>
             <button type="button" id="typeCashBtn" onclick="setCheckoutType('cash')" class="py-2.5 px-3 rounded-xl text-xs font-bold border-2 border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition text-center">
-              💵 সরাসরি ক্যাশ পেমেন্ট (Pay in Person)
+              💵 সরাসরি ক্যাশ পেমেন্ট
             </button>
           </div>
         </div>
 
-        <!-- A. ONLINE PAYMENT FORM -->
+        <!-- ONLINE PAYMENT FORM -->
         <div id="onlinePaymentSection" class="space-y-3.5">
           <div class="grid grid-cols-4 gap-1.5" id="onlineMethodButtons">
             <button type="button" onclick="selectOnlineMethod('bKash')" class="on-pay-btn py-2 text-xs font-bold rounded-lg border border-pink-500 bg-pink-50 text-pink-700">বিকাশ</button>
@@ -253,72 +196,68 @@
           <div class="bg-blue-50/70 p-3.5 rounded-xl border border-blue-200 space-y-1.5 text-xs">
             <div class="flex items-center justify-between">
               <span id="onlineMethodDisplayLabel" class="font-bold text-slate-700 uppercase">BKASH পার্সোনাল নম্বর:</span>
-              <span class="bg-[#071952] text-[#FABC3F] text-[10px] px-2 py-0.5 rounded-full font-bold">সেন্ড মানি</span>
+              <span class="bg-blue-600 text-white text-[10px] px-2 py-0.5 rounded-full font-bold">সেন্ড মানি</span>
             </div>
             <div class="bg-white px-3 py-2 rounded-lg border border-blue-300 font-mono font-black text-sm text-blue-950 flex items-center justify-between">
               <span id="checkoutReceiverNumber">01610146429</span>
               <button onclick="copyPaymentNumber()" class="text-[10px] text-blue-600 font-bold bg-blue-50 px-2 py-0.5 rounded border border-blue-200">কপি করুন</button>
             </div>
-            <p class="text-[11px] text-slate-600 leading-tight">
-              * আপনার অ্যাপ থেকে সেন্ড মানি করে নিচে আপনার প্রেরক নম্বর ও ফিরতি TrxID লিখুন। অ্যাডমিন স্বাধীনভাবে যাচাই করার পর অ্যাক্সেস চালু হবে।
-            </p>
           </div>
 
           <div>
-            <label class="block text-[11px] font-bold text-slate-700 mb-1">শিক্ষার্থীর পূর্ণ নাম:</label>
-            <input type="text" id="onlineStudentNameInput" placeholder="আপনার নাম" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-[#071952] focus:outline-none" required>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">আপনার নাম (Student Name):</label>
+            <input type="text" id="onlineStudentNameInput" placeholder="আপনার পূর্ণ নাম" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-blue-500" required>
           </div>
           <div>
-            <label class="block text-[11px] font-bold text-slate-700 mb-1">প্রেরক নম্বর (যে নম্বর থেকে টাকা পাঠিয়েছেন):</label>
-            <input type="tel" id="onlineSenderPhoneInput" placeholder="01XXXXXXXXX" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-[#071952] focus:outline-none" required>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">প্রেরক নম্বর (Sender Phone):</label>
+            <input type="tel" id="onlineSenderPhoneInput" placeholder="01XXXXXXXXX" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-blue-500" required>
           </div>
           <div>
-            <label class="block text-[11px] font-bold text-slate-700 mb-1">ট্রানজ্যাকশন আইডি (Transaction ID / TrxID):</label>
-            <input type="text" id="onlineTrxIdInput" placeholder="যেমন: BL98XQ..." class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-mono uppercase tracking-wider focus:ring-2 focus:ring-[#071952] focus:outline-none" required>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">ট্রানজ্যাকশন আইডি (TrxID):</label>
+            <input type="text" id="onlineTrxIdInput" placeholder="যেমন: BL98XQ..." class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-mono uppercase tracking-wider focus:ring-2 focus:ring-blue-500" required>
           </div>
-          <button onclick="submitOnlinePaymentOrder()" class="w-full py-3 bg-[#071952] hover:bg-[#071952]/90 text-[#FABC3F] text-xs font-bold rounded-xl shadow-md transition">
+          <button onclick="submitOnlinePaymentOrder()" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl shadow transition">
             অনলাইন পেমেন্ট সাবমিট করুন
           </button>
         </div>
 
-        <!-- B. PHYSICAL CASH PAYMENT FORM -->
+        <!-- PHYSICAL CASH PAYMENT FORM -->
         <div id="cashPaymentSection" class="hidden space-y-3.5">
           <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs space-y-1">
-            <span class="font-bold text-amber-900 block">💵 সরাসরি ক্যাশ পেমেন্ট (Pay in Person):</span>
+            <span class="font-bold text-amber-900 block">💵 সরাসরি ক্যাশ পেমেন্ট নিয়মাবলী:</span>
             <p class="text-amber-800 text-[11px] leading-relaxed">
-              স্বত্বাধিকারী <strong>মো: রাহাত খান</strong>-এর নিকট সশরীরে ক্যাশ টাকা প্রদান করুন। অ্যাডমিন ক্যাশ পাওয়ার সত্যতা নিশ্চিত করে লাইব্রেরিতে পিডিএফ সক্রিয় করবেন।
+              আপনি স্বত্বাধিকারী <strong>মো: রাহাত খান</strong>-এর নিকট সশরীরে ক্যাশ টাকা প্রদান করবেন। অ্যাডমিন ক্যাশ পাওয়ার সত্যতা যাচাই করে ক্লাউড থেকে পিডিএফ সক্রিয় করবেন।
             </p>
           </div>
 
           <div>
-            <label class="block text-[11px] font-bold text-slate-700 mb-1">শিক্ষার্থীর পূর্ণ নাম:</label>
-            <input type="text" id="cashStudentNameInput" placeholder="আপনার নাম" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-amber-500 focus:outline-none" required>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">শিক্ষার্থীর নাম:</label>
+            <input type="text" id="cashStudentNameInput" placeholder="আপনার নাম" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-amber-500" required>
           </div>
           <div>
             <label class="block text-[11px] font-bold text-slate-700 mb-1">মোবাইল নম্বর:</label>
-            <input type="tel" id="cashStudentPhoneInput" placeholder="01XXXXXXXXX" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-amber-500 focus:outline-none" required>
+            <input type="tel" id="cashStudentPhoneInput" placeholder="01XXXXXXXXX" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-amber-500" required>
           </div>
           <div>
-            <label class="block text-[11px] font-bold text-slate-700 mb-1">ক্যাশ গ্রহণকারীর নাম:</label>
-            <input type="text" id="cashReceiverNameInput" value="মো: রাহাত খান" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-slate-100 font-semibold text-slate-700" readonly>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">ক্যাশ গ্রহণকারী:</label>
+            <input type="text" value="মো: রাহাত খান" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-slate-100 font-semibold text-slate-700" readonly>
           </div>
           <div>
             <label class="block text-[11px] font-bold text-slate-700 mb-1">টাকা দেওয়ার সম্ভাব্য তারিখ:</label>
-            <input type="date" id="cashHandoverDateInput" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-amber-500 focus:outline-none">
+            <input type="date" id="cashHandoverDateInput" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-amber-500">
           </div>
-          <button onclick="submitCashPaymentOrder()" class="w-full py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold rounded-xl shadow-md transition">
+          <button onclick="submitCashPaymentOrder()" class="w-full py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold rounded-xl shadow transition">
             ক্যাশ পেমেন্ট রিকোয়েস্ট নিশ্চিত করুন
           </button>
         </div>
       </div>
 
-      <!-- Success Screen -->
       <div id="checkoutSuccessScreen" class="hidden p-6 text-center space-y-3">
         <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">✓</div>
-        <h4 class="text-base font-bold text-slate-800" id="successOrderHeadline">অর্ডার সাবমিট হয়েছে!</h4>
+        <h4 class="text-base font-bold text-slate-800" id="successOrderHeadline">অর্ডার ক্লাউডে জমা হয়েছে!</h4>
         <p class="text-xs text-slate-600 leading-relaxed" id="successOrderMessage"></p>
         <div class="pt-2 space-y-2">
-          <button onclick="switchMainView('studentDashboard'); closeModal('checkoutModal');" class="w-full py-2.5 bg-[#071952] text-white text-xs font-bold rounded-xl shadow transition">
+          <button onclick="switchMainView('studentDashboard'); closeModal('checkoutModal');" class="w-full py-2.5 bg-slate-900 text-white text-xs font-bold rounded-xl shadow transition">
             আমার লাইব্রেরিতে অর্ডার দেখুন
           </button>
           <button onclick="closeModal('checkoutModal')" class="w-full py-2 bg-slate-100 text-xs font-bold text-slate-600 rounded-xl">
@@ -329,40 +268,36 @@
     </div>
   </div>
 
-  <!-- ========================================== -->
-  <!-- 6. COMPLETE ADVANCED MOBILE ADMIN PANEL    -->
-  <!-- ========================================== -->
+  <!-- ADVANCED MOBILE ADMIN PANEL -->
   <div id="adminModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-2 sm:p-4">
     <div class="bg-white w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[92vh]">
-      <!-- Admin Header -->
-      <div class="bg-[#071952] text-white px-4 py-3.5 flex items-center justify-between shrink-0 border-b border-slate-800">
+      <div class="bg-slate-900 text-white px-4 py-3.5 flex items-center justify-between shrink-0 border-b border-slate-800">
         <div>
-          <h4 class="text-sm font-bold flex items-center text-white">
+          <h4 class="text-sm font-bold flex items-center">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
             রাহাত একাডেমি — অ্যাডমিন কন্ট্রোল রুম
           </h4>
-          <p class="text-[10px] text-slate-300">পরিচালক: মো: রাহাত খান • সম্পূর্ণ মোবাইল ম্যানেজমেন্ট</p>
+          <p class="text-[10px] text-slate-400">পরিচালক: মো: রাহাত খান • ক্লাউড ডেটাবেজ ও PDF ম্যানেজমেন্ট</p>
         </div>
         <button onclick="closeModal('adminModal')" class="text-slate-400 hover:text-white font-bold text-lg p-1">✕</button>
       </div>
 
-      <!-- Admin Login Box -->
+      <!-- Admin Login -->
       <div id="adminLoginBox" class="p-6 space-y-4 my-auto max-w-md mx-auto w-full">
         <div class="text-center space-y-1">
-          <div class="w-12 h-12 bg-amber-100 text-[#071952] rounded-2xl flex items-center justify-center mx-auto text-xl font-bold">🔐</div>
-          <h5 class="text-sm font-bold text-slate-800">অ্যাডমিন প্রমাণীকরণ</h5>
-          <p class="text-xs text-slate-500">মোবাইল থেকে সরাসরি পিডিএফ ও পেমেন্ট নিয়ন্ত্রণের গোপন পিন দিন:</p>
+          <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center mx-auto text-xl font-bold">🔐</div>
+          <h5 class="text-sm font-bold text-slate-800">অ্যাডমিন প্রবেশাধিকার</h5>
+          <p class="text-xs text-slate-500">গোপন পিন দিয়ে প্রবেশ করুন:</p>
         </div>
-        <input type="password" id="adminPinInput" placeholder="গোপন পিন লিখুন" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-[#FABC3F] text-center font-mono text-base tracking-widest">
-        <button onclick="checkAdminLogin()" class="w-full py-2.5 bg-[#071952] hover:bg-[#071952]/90 text-[#FABC3F] text-xs font-bold rounded-xl shadow transition">
+        <input type="password" id="adminPinInput" placeholder="গোপন পিন লিখুন" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-amber-500 text-center font-mono text-base tracking-widest">
+        <button onclick="checkAdminLogin()" class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl shadow transition">
           প্রবেশ করুন
         </button>
+        <p class="text-[11px] text-slate-400 text-center">ডিফল্ট অ্যাডমিন পিন: <strong>rahat2027</strong></p>
       </div>
 
       <!-- Admin Dashboard Content -->
       <div id="adminDashboardBox" class="hidden flex-1 overflow-y-auto p-4 space-y-5">
-        
-        <!-- Live Analytics & Metrics Grid -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 text-center">
           <div class="p-3 bg-amber-50 rounded-xl border border-amber-200">
             <span class="text-[10px] font-bold text-amber-800">অনলাইন পেন্ডিং</span>
@@ -373,205 +308,166 @@
             <h5 id="metricPendingCash" class="text-lg font-black text-blue-900">০ টি</h5>
           </div>
           <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200">
-            <span class="text-[10px] font-bold text-emerald-800">অনুমোদিত বিক্রয়</span>
+            <span class="text-[10px] font-bold text-emerald-800">মোট অনুমোদিত</span>
             <h5 id="metricApprovedSales" class="text-lg font-black text-emerald-900">০ টি</h5>
           </div>
           <div class="p-3 bg-slate-100 rounded-xl border border-slate-200">
-            <span class="text-[10px] font-bold text-slate-700">আপলোড করা PDF</span>
+            <span class="text-[10px] font-bold text-slate-700">সংযুক্ত ক্লাউড PDF</span>
             <h5 id="metricUploadedPdfCount" class="text-lg font-black text-slate-900">০ / ১৫১</h5>
           </div>
         </div>
 
-        <!-- Admin Navigation Tabs -->
         <div class="flex items-center space-x-1.5 border-b border-slate-200 pb-2 overflow-x-auto no-scrollbar text-xs font-bold">
-          <button onclick="setAdminTab('tabOnlinePay')" id="btnTabOnlinePay" class="px-3 py-1.5 rounded-lg bg-[#071952] text-white shrink-0">অনলাইন পেমেন্ট</button>
+          <button onclick="setAdminTab('tabOnlinePay')" id="btnTabOnlinePay" class="px-3 py-1.5 rounded-lg bg-blue-600 text-white shrink-0">অনলাইন পেমেন্ট</button>
           <button onclick="setAdminTab('tabCashPay')" id="btnTabCashPay" class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0">ক্যাশ পেমেন্ট</button>
-          <button onclick="setAdminTab('tabOfflineSale')" id="btnTabOfflineSale" class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0">+ অফলাইন সেলস</button>
-          <button onclick="setAdminTab('tabPdfUpload')" id="btnTabPdfUpload" class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0">PDF আপলোড</button>
-          <button onclick="setAdminTab('tabSettings')" id="btnTabSettings" class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0">সেটিংস ও নম্বর</button>
+          <button onclick="setAdminTab('tabOfflineSale')" id="btnTabOfflineSale" class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0">+ অফলাইন সেল</button>
+          <button onclick="setAdminTab('tabPdfUpload')" id="btnTabPdfUpload" class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0">PDF ক্লাউড লিংক</button>
+          <button onclick="setAdminTab('tabSettings')" id="btnTabSettings" class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0">সেটিংস ও পাসওয়ার্ড</button>
         </div>
 
-        <!-- TAB 1: ONLINE PAYMENT VERIFICATION -->
+        <!-- TAB 1: ONLINE PAYMENTS -->
         <div id="tabOnlinePay" class="space-y-3">
-          <h5 class="text-xs font-bold text-slate-800">অনলাইন পেমেন্ট যাচাই ও অনুমোদন (bKash/Nagad/Rocket):</h5>
+          <h5 class="text-xs font-bold text-slate-800">অনলাইন পেমেন্ট অনুমোদন (bKash/Nagad/Rocket):</h5>
           <div id="adminOnlineOrdersList" class="space-y-2"></div>
         </div>
 
-        <!-- TAB 2: CASH PAYMENT VERIFICATION -->
+        <!-- TAB 2: CASH PAYMENTS -->
         <div id="tabCashPay" class="hidden space-y-3">
-          <h5 class="text-xs font-bold text-slate-800">সরাসরি ক্যাশ পেমেন্ট যাচাই ও অনুমোদন:</h5>
+          <h5 class="text-xs font-bold text-slate-800">সরাসরি ক্যাশ পেমেন্ট অনুমোদন:</h5>
           <div id="adminCashOrdersList" class="space-y-2"></div>
         </div>
 
-        <!-- TAB 3: DIRECT OFFLINE MANUAL CASH SALE -->
+        <!-- TAB 3: OFFLINE SALE -->
         <div id="tabOfflineSale" class="hidden bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
           <div class="border-b border-slate-200 pb-2">
-            <h5 class="text-xs font-bold text-slate-900">সরাসরি অফলাইন সেলস এন্ট্রি (Manual Cash Sale)</h5>
-            <p class="text-[11px] text-slate-500">শিক্ষার্থী হাতে টাকা দিলে কোনো ফর্ম পূরণ ছাড়াই সাথে সাথে অ্যাক্সেস দিন।</p>
+            <h5 class="text-xs font-bold text-slate-900">সরাসরি অফলাইন সেলস এন্ট্রি</h5>
+            <p class="text-[11px] text-slate-500">ছাত্র হাতে টাকা দিলে সরাসরি ক্লাউড থেকে অ্যাক্সেস দিন।</p>
           </div>
-
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <label class="block text-[11px] font-bold text-slate-700 mb-1">শিক্ষার্থীর নাম:</label>
-              <input type="text" id="manualSaleStudentName" placeholder="নাম লিখুন" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white">
-            </div>
-            <div>
-              <label class="block text-[11px] font-bold text-slate-700 mb-1">শিক্ষার্থীর মোবাইল নম্বর:</label>
-              <input type="tel" id="manualSaleStudentPhone" placeholder="01XXXXXXXXX" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white">
-            </div>
+            <input type="text" id="manualSaleStudentName" placeholder="শিক্ষার্থীর নাম" class="px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white">
+            <input type="tel" id="manualSaleStudentPhone" placeholder="মোবাইল নম্বর" class="px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white">
           </div>
-
-          <div>
-            <label class="block text-[11px] font-bold text-slate-700 mb-1">টপিক বা অধ্যায় নির্বাচন করুন:</label>
-            <select id="manualSaleTopicSelect" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white"></select>
-          </div>
-
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block text-[11px] font-bold text-slate-700 mb-1">প্রাপ্ত ক্যাশ টাকা (৳):</label>
-              <input type="number" id="manualSaleAmount" value="30" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white font-bold">
-            </div>
-            <div>
-              <label class="block text-[11px] font-bold text-slate-700 mb-1">ক্যাশ গ্রহণকারী:</label>
-              <input type="text" id="manualSaleReceiver" value="মো: রাহাত খান" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-slate-100" readonly>
-            </div>
-          </div>
-
+          <select id="manualSaleTopicSelect" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white"></select>
+          <input type="number" id="manualSaleAmount" value="30" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white font-bold">
           <button onclick="handleManualOfflineSale()" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow transition">
             ✓ ক্যাশ রেকর্ড করুন ও সরাসরি অ্যাক্সেস দিন
           </button>
         </div>
 
-        <!-- TAB 4: MOBILE DIRECT PDF UPLOADER -->
+        <!-- TAB 4: PERMANENT CLOUD / GOOGLE DRIVE PDF INTEGRATION -->
         <div id="tabPdfUpload" class="hidden bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
-          <div class="border-b border-slate-200 pb-2 flex justify-between items-center">
-            <h5 class="text-xs font-bold text-slate-900">ফোন থেকে সরাসরি PDF আপলোড করুন</h5>
-            <span class="text-[10px] bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded">মোবাইল ফাইল ম্যানেজার</span>
+          <div class="border-b border-slate-200 pb-2">
+            <h5 class="text-xs font-bold text-slate-900">স্থায়ী ক্লাউড PDF ফাইল সংযুক্ত করুন</h5>
+            <p class="text-[11px] text-slate-500">গুগল ড্রাইভ বা ক্লাউডে আপলোড করে লিংক এখানে পেস্ট করলে সব ছাত্র সব ফোন থেকে পড়তে পারবে।</p>
           </div>
 
           <div>
-            <label class="block text-[11px] font-bold text-slate-700 mb-1">১৫১টি বিষয়ের মধ্যে কাঙ্ক্ষিত অধ্যায় নির্বাচন করুন:</label>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">অধ্যায় নির্বাচন করুন:</label>
             <select id="adminUploadTopicSelect" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white"></select>
           </div>
 
           <div>
-            <label class="block text-[11px] font-bold text-slate-700 mb-1">মোবাইল থেকে আসল PDF ফাইলটি সিলেক্ট করুন:</label>
-            <input type="file" id="adminPdfFileInput" accept="application/pdf" class="w-full text-xs text-slate-500 file:mr-2 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#071952] file:text-[#FABC3F] hover:file:bg-[#071952]/90 cursor-pointer border border-slate-300 rounded-xl bg-white p-1">
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">গুগল ড্রাইভ লিংক (Google Drive Share Link) পেস্ট করুন:</label>
+            <input type="url" id="adminCloudPdfUrlInput" placeholder="https://drive.google.com/file/d/.../view?usp=sharing" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white font-mono">
+            <p class="text-[10px] text-slate-500 mt-1">* ড্রাইভে ফাইলের Share অপশন 'Anyone with the link' করে লিংক কপি করে এখানে পেস্ট করুন।</p>
           </div>
 
-          <button onclick="handleAdminPdfUpload()" class="w-full py-2.5 bg-[#071952] hover:bg-[#071952]/90 text-[#FABC3F] text-xs font-bold rounded-xl shadow transition">
-            ✓ এই অধ্যায়ে PDF সেভ ও সক্রিয় করুন
+          <button onclick="handleCloudPdfLinkSave()" class="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl shadow transition">
+            ✓ এই অধ্যায়ে স্থায়ী PDF লিংক সংরক্ষণ করুন
           </button>
         </div>
 
-        <!-- TAB 5: EDITABLE SETTINGS (NO SOURCE CODE EDITING REQUIRED) -->
-        <div id="tabSettings" class="hidden bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3.5">
-          <div class="border-b border-slate-200 pb-2">
-            <h5 class="text-xs font-bold text-slate-900">প্ল্যাটফর্ম সেটিংস ও পেমেন্ট নম্বর</h5>
-            <p class="text-[11px] text-slate-500">এখানে পরিবর্তন করলে সাইটের কোড এডিট না করেই স্থায়ীভাবে সংরক্ষিত হবে।</p>
+        <!-- TAB 5: SETTINGS & PASSWORD CHANGE -->
+        <div id="tabSettings" class="hidden space-y-4">
+          <div class="bg-amber-50/70 p-4 rounded-2xl border border-amber-300 space-y-3">
+            <div class="border-b border-amber-200 pb-2">
+              <h5 class="text-xs font-bold text-amber-950 flex items-center">
+                🔐 অ্যাডমিন পাসওয়ার্ড পরিবর্তন (Change Password)
+              </h5>
+              <p class="text-[11px] text-amber-800">আপনার অ্যাডমিন প্যানেলের পিন পরিবর্তন করে সম্পূর্ণ নিরাপদ রাখুন।</p>
+            </div>
+            <div class="space-y-2">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 mb-1">বর্তমান পাসওয়ার্ড:</label>
+                <input type="password" id="currentAdminPassInput" placeholder="বর্তমান পাসওয়ার্ড" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 mb-1">নতুন পাসওয়ার্ড:</label>
+                <input type="password" id="newAdminPassInput" placeholder="নতুন পাসওয়ার্ড" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 mb-1">নতুন পাসওয়ার্ড নিশ্চিত করুন:</label>
+                <input type="password" id="confirmAdminPassInput" placeholder="পুনরায় নতুন পাসওয়ার্ড" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white">
+              </div>
+              <button onclick="changeAdminPassword()" class="w-full py-2.5 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-xl shadow transition">
+                ✓ পাসওয়ার্ড পরিবর্তন ও সংরক্ষণ করুন
+              </button>
+            </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
+            <h5 class="text-xs font-bold text-slate-900 border-b border-slate-200 pb-2">প্ল্যাটফর্ম সেটিংস ও পেমেন্ট নম্বর</h5>
             <div>
-              <label class="block text-[11px] font-bold text-slate-700 mb-1">বিকাশ/নগদ রিসিভার নম্বর:</label>
+              <label class="block text-[11px] font-bold text-slate-700 mb-1">বিকাশ/নগদ নম্বর:</label>
               <input type="text" id="configPaymentNumber" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white font-mono font-bold">
             </div>
             <div>
-              <label class="block text-[11px] font-bold text-slate-700 mb-1">প্রতিটি পিডিএফ-এর ডিফল্ট মূল্য (৳):</label>
+              <label class="block text-[11px] font-bold text-slate-700 mb-1">ডিফল্ট মূল্য (৳):</label>
               <input type="number" id="configDefaultPrice" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white font-bold">
             </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="block text-[11px] font-bold text-slate-700 mb-1">হোয়াটসঅ্যাপ বিজনেস লিংক:</label>
+              <label class="block text-[11px] font-bold text-slate-700 mb-1">হোয়াটসঅ্যাপ লিংক:</label>
               <input type="text" id="configWhatsappLink" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white">
             </div>
-            <div>
-              <label class="block text-[11px] font-bold text-slate-700 mb-1">কল যোগাযোগের নম্বর:</label>
-              <input type="text" id="configCallNumber" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs bg-white">
-            </div>
+            <button onclick="savePlatformSettings()" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow transition">
+              💾 সেটিংস সংরক্ষণ করুন
+            </button>
           </div>
-
-          <button onclick="savePlatformSettings()" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow transition">
-            💾 সেটিংস সংরক্ষণ করুন (Save Settings)
-          </button>
         </div>
 
-        <!-- Admin Footer Controls -->
         <div class="pt-3 border-t border-slate-200 flex justify-between items-center text-xs">
-          <span class="text-slate-500">লগইন অ্যাকাউন্ট: <strong>rahatkhan15516@gmail.com</strong></span>
+          <span class="text-slate-500">পরিচালক: <strong>MD. Rahat Khan</strong></span>
           <button onclick="adminLogout()" class="text-rose-600 font-bold bg-rose-50 px-3 py-1 rounded-lg">লগআউট</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ========================================== -->
-  <!-- 7. FLOATING CONTACT BUTTONS (ORDERED)      -->
-  <!-- ========================================== -->
+  <!-- FLOATING CONTACTS -->
   <div class="fixed bottom-4 right-4 z-40 flex flex-col items-end space-y-2.5">
-    <!-- 1. Messenger (Top) -->
-    <a href="https://m.me/md.rahat.khan.557609" target="_blank" rel="noopener noreferrer" title="মেসেঞ্জার" class="w-11 h-11 bg-[#0084FF] hover:brightness-110 text-white rounded-full flex items-center justify-center shadow-lg transition transform hover:scale-110 active:scale-95">
+    <a href="https://m.me/md.rahat.khan.557609?hash=Abbii4BtKUCZnabN&source=qr" target="_blank" class="w-11 h-11 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition">
       <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.87 1.49 5.43 3.82 7.04V22l3.8-2.09c.77.21 1.57.33 2.38.33 5.52 0 10-4.03 10-9s-4.48-9-10-9zm1.06 12.14l-2.6-2.77-5.07 2.77 5.58-5.92 2.66 2.77 5.01-2.77-5.58 5.92z"/></svg>
     </a>
-    <!-- 2. WhatsApp (Middle) -->
-    <a id="floatingWhatsappBtn" href="https://wa.me/8801610146429" target="_blank" rel="noopener noreferrer" title="হোয়াটসঅ্যাপ" class="w-12 h-12 bg-[#25D366] hover:brightness-110 text-white rounded-full flex items-center justify-center shadow-xl transition transform hover:scale-110 active:scale-95 p-3">
-      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.29c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.83c.01 4.54-3.69 8.24-8.22 8.24zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.57c.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/></svg>
-    </a>
-    <!-- 3. Call (Bottom) -->
-    <a id="floatingCallBtn" href="tel:01610146429" title="সরাসরি কল করুন" class="w-11 h-11 bg-emerald-600 hover:brightness-110 text-white rounded-full flex items-center justify-center shadow-lg transition transform hover:scale-110 active:scale-95">
+    <a id="floatingCallBtn" href="tel:01610146429" class="w-11 h-11 bg-emerald-600 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition">
       <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    </a>
+    <a id="floatingWhatsappBtn" href="https://wa.me/8801610146429" target="_blank" class="w-13 h-13 bg-green-500 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition p-3">
+      <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 01-1.26-4.29c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.83c.01 4.54-3.69 8.24-8.22 8.24zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.57c.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/></svg>
     </a>
   </div>
 
-  <!-- ========================================== -->
-  <!-- 8. PROFESSIONAL BRAND FOOTER & SOCIALS     -->
-  <!-- ========================================== -->
-  <footer class="bg-[#071952] text-slate-300 py-12 px-4 border-t border-[#088395]/20">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-white/10 text-xs">
-      <div class="space-y-3">
-        <h4 class="text-white font-bold text-sm">রাহাত একাডেমি (Rahat Academy)</h4>
-        <p class="text-slate-300 leading-relaxed">
-          উচ্চ মাধ্যমিক শিক্ষার্থীদের জন্য প্রস্তুতকৃত সম্পূর্ণ মৌলিক ও বিশেষায়িত রিভিশন শিট প্ল্যাটফর্ম।
-        </p>
-        <p class="text-[#FABC3F] font-semibold">পরিচালক: মো: রাহাত খান</p>
-      </div>
-
-      <div class="space-y-3">
-        <h4 class="text-white font-bold text-sm">সোশ্যাল কানেক্ট</h4>
-        <div class="flex flex-col space-y-1.5">
-          <a href="https://www.facebook.com/rahatkhan15516" target="_blank" rel="noopener noreferrer" class="hover:text-[#FABC3F] transition">➔ অফিসিয়াল ফেসবুক পেজ</a>
-          <a href="https://www.facebook.com/md.rahat.khan.557609" target="_blank" rel="noopener noreferrer" class="hover:text-[#FABC3F] transition">➔ মো: রাহাত খান (ফেসবুক প্রোফাইল)</a>
-          <a href="https://www.instagram.com/rahatkhan72123" target="_blank" rel="noopener noreferrer" class="hover:text-[#FABC3F] transition">➔ ইনস্টাগ্রাম প্রোফাইল</a>
-          <a href="https://t.me/Rahatkhan150" target="_blank" rel="noopener noreferrer" class="hover:text-[#FABC3F] transition">➔ টেলিগ্রাম সাপোর্ট চ্যানেল</a>
-          <a href="https://youtube.com/@rahat294?si=cDbjsYHW6Vf3wAoq" target="_blank" rel="noopener noreferrer" class="hover:text-[#FABC3F] transition">➔ অফিসিয়াল ইউটিউব চ্যানেল</a>
-        </div>
-      </div>
-
-      <div class="space-y-3">
-        <h4 class="text-white font-bold text-sm">যোগাযোগ ও হেল্পলাইন</h4>
-        <p>প্রধান হোয়াটসঅ্যাপ: <span class="text-white font-mono font-bold">01610146429</span></p>
-        <p>বিকল্প কল নম্বর: <span class="text-white font-mono font-bold">01892672153</span></p>
-        <p>ব্যবসায়িক ইমেইল: <span class="text-white">rahatkhan15516@gmail.com</span></p>
-        <p class="text-[#FABC3F] font-medium">সাপোর্ট সময়: সকাল ০৮:০০ টা – রাত ১০:০০ টা</p>
-      </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto pt-6 text-center text-[11px] text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-2">
-      <p>© ২০২৬ রাহাত একাডেমি। সর্বস্বত্ব সংরক্ষিত।</p>
-      <div class="flex space-x-4">
-        <span>গোপনীয়তা নীতি</span>
-        <span>শর্তাবলী</span>
-        <span>রিফান্ড নীতিমালা</span>
-      </div>
-    </div>
+  <footer class="bg-slate-900 text-slate-400 py-8 px-4 text-center text-xs space-y-2 border-t border-slate-800">
+    <p class="font-bold text-white text-sm">রাহাত একাডেমি (Rahat Academy)</p>
+    <p>উদ্যোক্তা ও পরিচালক: মো: রাহাত খান • হেল্পলাইন: 01610146429</p>
+    <p class="text-slate-500 text-[11px]">ইমেইল: rahatkhan15516@gmail.com • ঢাকা, বাংলাদেশ</p>
+    <p class="text-[10px] text-slate-600">© ২০২৬ রাহাত একাডেমি। সর্বস্বত্ব সংরক্ষিত।</p>
   </footer>
 
-  <!-- ========================================== -->
-  <!-- 9. PRESERVED 151 TOPICS & APPLICATION LOGIC-->
-  <!-- ========================================== -->
+  <!-- SCRIPT ENGINE WITH REAL SUPABASE CLOUD SYNC -->
   <script>
+    // --- SUPABASE CLOUD CONNECTION ---
+    const SUPABASE_URL = "https://twommcyjxadbamrfoitc.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_Q5zYui5H3tq01_lPB1iorg_ksp2_2g2";
+    let supabase = null;
+
+    if (window.supabase) {
+      try {
+        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      } catch (err) {
+        console.error("Supabase ক্লায়েন্ট কানেকশন এরর:", err);
+      }
+    }
+
     const CATALOG_DATA = [
       {
         paper: "বাংলা ১ম পত্র", subject: "বাংলা",
@@ -648,7 +544,7 @@
           { title: "অধ্যায় ১: বিশ্ব ও বাংলাদেশ প্রেক্ষিত", cat: "অধ্যায়" },
           { title: "অধ্যায় ২: কমিউনিকেশন সিস্টেমস ও নেটওয়ার্কিং", cat: "অধ্যায়" },
           { title: "অধ্যায় ৩: সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস", cat: "অধ্যায়" },
-          { title: "অধ্যায় ৪: ওয়েব ডিজাইন ও এইচটিএমএল", cat: "অধ্যায়" },
+          { title: "অধ্যায় ৪: ওয়েব ডিজাইন ও এইচটিএমএল", cat: "অধ্যায়" },
           { title: "অধ্যায় ৫: প্রোগ্রামিং ভাষা (C)", cat: "অধ্যায়" },
           { title: "অধ্যায় ৬: ডেটাবেজ ম্যানেজমেন্ট সিস্টেম", cat: "অধ্যায়" }
         ]
@@ -742,6 +638,7 @@
       altPhone: "01892672153",
       whatsappLink: "https://wa.me/8801610146429",
       defaultPrice: 30,
+      adminPassword: "rahat2027",
       heroHeading: "স্মার্ট প্রস্তুতি, গুছানো নোট,<br class=\"hidden sm:inline\"> আত্মবিশ্বাসী পরীক্ষা।",
       heroSubheading: "বাংলা, ইংরেজি, আইসিটি ও বিজ্ঞানের প্রতিটি বিষয়ের টপিকভিত্তিক প্রিমিয়াম রিভিশন শিট।"
     };
@@ -750,7 +647,6 @@
     let uploadedPdfs = JSON.parse(localStorage.getItem("rahat_uploaded_pdfs") || "{}");
     let orders = JSON.parse(localStorage.getItem("rahat_orders") || "[]");
     let entitlements = JSON.parse(localStorage.getItem("rahat_entitlements") || "[]");
-    let offlineCachedPdfs = JSON.parse(localStorage.getItem("rahat_offline_cached_keys") || "[]");
 
     let currentSubject = "সব বিষয়";
     let selectedTopic = null;
@@ -758,12 +654,31 @@
     let selectedCheckoutType = "online";
     let selectedOnlineMethod = "bKash";
 
-    function initApp() {
+    async function initApp() {
       applyConfigToDOM();
       renderSubjectTabs();
       filterCatalog();
+      await syncFromCloud();
       renderStudentDashboard();
-      initPWA();
+    }
+
+    // --- CLOUD SYNC LOGIC ---
+    async function syncFromCloud() {
+      if (!supabase) return;
+      try {
+        // Fetch cloud settings/PDF links
+        const { data: cloudSettings } = await supabase.from('system_settings').select('*');
+        if (cloudSettings) {
+          cloudSettings.forEach(s => {
+            if (s.key === 'uploaded_pdfs' && s.value) {
+              uploadedPdfs = { ...uploadedPdfs, ...s.value };
+              localStorage.setItem("rahat_uploaded_pdfs", JSON.stringify(uploadedPdfs));
+            }
+          });
+        }
+      } catch (e) {
+        console.warn("ক্লাউড সিঙ্ক ফলব্যাক:", e);
+      }
     }
 
     function applyConfigToDOM() {
@@ -779,7 +694,6 @@
       document.getElementById("configPaymentNumber").value = config.paymentNumber;
       document.getElementById("configDefaultPrice").value = config.defaultPrice;
       document.getElementById("configWhatsappLink").value = config.whatsappLink;
-      document.getElementById("configCallNumber").value = config.callNumber;
     }
 
     function switchMainView(view) {
@@ -799,7 +713,7 @@
       const container = document.getElementById("subjectTabs");
       container.innerHTML = subjects.map(s => `
         <button onclick="setSubject('${s}')" class="whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition ${
-          currentSubject === s ? 'bg-[#071952] text-[#FABC3F] shadow-sm' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+          currentSubject === s ? 'bg-slate-900 text-amber-400 shadow-sm' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
         }">${s}</button>
       `).join("");
     }
@@ -831,9 +745,9 @@
 
       container.innerHTML = filtered.map(paper => `
         <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-          <div class="bg-slate-100/90 px-4 py-3 border-b border-slate-200 flex items-center justify-between">
-            <span class="text-sm font-bold text-[#071952] flex items-center">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#FABC3F] mr-2"></span>
+          <div class="bg-slate-100/80 px-4 py-3 border-b border-slate-200 flex items-center justify-between">
+            <span class="text-sm font-bold text-slate-900 flex items-center">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500 mr-2"></span>
               ${paper.paper}
             </span>
             <span class="text-[11px] font-semibold text-slate-500">${paper.topics.length}টি অধ্যায়</span>
@@ -849,12 +763,12 @@
               <div class="p-4 bg-white flex flex-col justify-between hover:bg-slate-50 transition">
                 <div>
                   <div class="flex items-center justify-between mb-1.5">
-                    <span class="text-[10px] font-bold text-[#088395] bg-teal-50 px-2 py-0.5 rounded border border-teal-100">${t.cat}</span>
-                    ${isUnlocked ? `<span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">✓ লাইব্রেরিতে আছে</span>` : 
-                      isUploaded ? `<span class="text-[10px] font-bold text-[#C89B3C] bg-amber-50 px-2 py-0.5 rounded border border-amber-200">PDF প্রস্তুত</span>` : 
+                    <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">${t.cat}</span>
+                    ${isUnlocked ? `<span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">✓ আনলকড</span>` : 
+                      isUploaded ? `<span class="text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">ক্লাউড PDF প্রস্তুত</span>` : 
                       `<span class="text-[10px] font-medium text-slate-400">শীঘ্রই আসছে</span>`}
                   </div>
-                  <h4 class="text-xs sm:text-sm font-bold text-[#071952] leading-snug">${t.title}</h4>
+                  <h4 class="text-xs sm:text-sm font-bold text-slate-900 leading-snug">${t.title}</h4>
                   ${t.sub ? `<p class="text-[11px] text-slate-500 mt-0.5">${t.sub}</p>` : ''}
                 </div>
 
@@ -867,7 +781,7 @@
                       পড়ুন
                     </button>
                   ` : `
-                    <button onclick="openCheckout('${t.title}', '${paper.paper}')" class="flex-1 py-1.5 bg-[#071952] hover:bg-[#071952]/90 text-[#FABC3F] text-xs font-bold rounded-lg shadow transition text-center">
+                    <button onclick="openCheckout('${t.title}', '${paper.paper}')" class="flex-1 py-1.5 bg-slate-900 hover:bg-slate-800 text-amber-400 text-xs font-bold rounded-lg shadow transition text-center">
                       সংগ্রহ করুন (৳${config.defaultPrice})
                     </button>
                   `}
@@ -882,6 +796,7 @@
     function openModal(id) { document.getElementById(id).classList.remove("hidden"); }
     function closeModal(id) { document.getElementById(id).classList.add("hidden"); }
 
+    // --- SECURE PDF READER (GOOGLE DRIVE CLOUD EMBED & VIEW-ONLY) ---
     function openReader(topicTitle, paperTitle, isFullAccess) {
       selectedTopic = topicTitle;
       selectedPaper = paperTitle;
@@ -890,38 +805,47 @@
       document.getElementById("readerTopicTitle").innerText = `${paperTitle} — ${topicTitle}`;
 
       if (isFullAccess) {
-        document.getElementById("readerBadge").innerText = "অনুমোদিত পূর্ণাঙ্গ সংস্করণ (১ বছর মেয়াদ)";
+        document.getElementById("readerBadge").innerText = "অনুমোদিত পূর্ণাঙ্গ সংস্করণ";
         document.getElementById("readerBadge").className = "text-[10px] text-emerald-400 font-bold uppercase tracking-wider";
         document.getElementById("readerCheckoutButton").classList.add("hidden");
-        document.getElementById("readerOfflineCacheBtn").classList.remove("hidden");
       } else {
-        document.getElementById("readerBadge").innerText = "ফ্রি স্যাম্পল প্রিভিউ (৩-৪ পৃষ্ঠা)";
-        document.getElementById("readerBadge").className = "text-[10px] text-[#FABC3F] font-bold uppercase tracking-wider";
+        document.getElementById("readerBadge").innerText = "ফ্রি স্যাম্পল প্রিভিউ";
+        document.getElementById("readerBadge").className = "text-[10px] text-amber-400 font-bold uppercase tracking-wider";
         document.getElementById("readerCheckoutButton").classList.remove("hidden");
-        document.getElementById("readerOfflineCacheBtn").classList.add("hidden");
       }
 
-      if (uploadedPdfs[fileKey]) {
+      if (uploadedPdfs[fileKey] && uploadedPdfs[fileKey].url) {
+        let viewUrl = uploadedPdfs[fileKey].url;
+        // Transform Google drive link to preview embed format automatically
+        if (viewUrl.includes("drive.google.com")) {
+          if (viewUrl.includes("/view")) {
+            viewUrl = viewUrl.replace(/\/view.*$/, "/preview");
+          } else if (!viewUrl.endsWith("/preview")) {
+            viewUrl = viewUrl.replace(/\/edit.*$/, "/preview").replace(/\?usp=sharing/, "");
+            if (!viewUrl.endsWith("/preview")) viewUrl += "/preview";
+          }
+        }
+
         container.innerHTML = `
-          <div class="w-full h-full flex flex-col items-center justify-between p-2">
-            <div class="w-full bg-white p-2.5 rounded-xl border border-slate-700 flex items-center justify-between text-xs text-slate-800 mb-2">
-              <span class="font-bold truncate">📄 ${uploadedPdfs[fileKey].name}</span>
-              <span class="text-[10px] font-mono bg-slate-100 px-2 py-0.5 rounded text-slate-600">${uploadedPdfs[fileKey].size}</span>
+          <div class="w-full h-full flex flex-col items-center justify-between p-1 sm:p-2">
+            <div class="w-full bg-slate-800 text-slate-200 px-3 py-1.5 rounded-lg flex items-center justify-between text-xs mb-1">
+              <span class="font-bold text-amber-400 truncate">📄 ${topicTitle} (লাইভ রিডার)</span>
+              <span class="text-[10px] bg-slate-900 px-2 py-0.5 rounded text-emerald-400 font-mono">ক্লাউড ভিউয়ার সক্রিয়</span>
             </div>
-            <iframe src="${uploadedPdfs[fileKey].url}#toolbar=0" class="w-full flex-1 rounded-xl border border-slate-700 bg-white"></iframe>
+            <iframe src="${viewUrl}" class="w-full flex-1 rounded-xl border border-slate-700 bg-white shadow-inner" allow="autoplay"></iframe>
           </div>
         `;
       } else {
         container.innerHTML = `
           <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-200 text-center space-y-3 max-w-md mx-auto">
-            <div class="w-12 h-12 bg-amber-50 text-[#C89B3C] rounded-full flex items-center justify-center mx-auto font-bold text-xl">📖</div>
+            <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mx-auto font-bold text-xl">📖</div>
             <h5 class="font-bold text-slate-700 text-xs">${paperTitle}</h5>
-            <h4 class="font-extrabold text-[#071952] text-sm sm:text-base">${topicTitle}</h4>
+            <h4 class="font-extrabold text-slate-900 text-sm sm:text-base">${topicTitle}</h4>
             <p class="text-xs text-slate-600 leading-relaxed text-justify">
-              বোর্ড স্ট্যান্ডার্ড সংক্ষিপ্ত প্রশ্নোত্তর, জ্ঞান ও অনুধাবনমূলক ব্যাখ্যার গোছানো শিট।
+              বোর্ড পরীক্ষার শতভাগ কমন উপযোগী সংক্ষিপ্ত প্রশ্নোত্তর, জ্ঞানমূলক ও অনুধাবনমূলক সমাধানের গোছানো লেকচার শিট।
             </p>
-            <p class="text-[11px] text-amber-900 bg-amber-50 p-2.5 rounded-xl border border-amber-200 font-medium">
-              * স্বত্বাধিকারী মো: রাহাত খান কর্তৃক প্রস্তুতকৃত মূল লেকচার ফাইল সংরক্ষিত আছে।
+            <p class="text-[11px] text-amber-800 bg-amber-50 p-2.5 rounded-xl border border-amber-200 font-medium">
+              * স্বত্বাধিকারী মো: রাহাত খান কর্তৃক প্রস্তুতকৃত মূল লেকচার ফাইল ক্লাউডে সংরক্ষিত আছে।
             </p>
           </div>
         `;
@@ -933,16 +857,6 @@
     function switchFromPreviewToCheckout() {
       closeModal("readerModal");
       openCheckout(selectedTopic, selectedPaper);
-    }
-
-    function saveForOfflineReading() {
-      const fileKey = `${selectedPaper}_${selectedTopic}`;
-      if (!offlineCachedPdfs.includes(fileKey)) {
-        offlineCachedPdfs.push(fileKey);
-        localStorage.setItem("rahat_offline_cached_keys", JSON.stringify(offlineCachedPdfs));
-      }
-      alert("সফল! এই শিটটি আপনার ডিভাইসে ৩০ দিনের অফলাইন রিডিংয়ের জন্য এনটাইটেলড করা হয়েছে।");
-      renderStudentDashboard();
     }
 
     function openCheckout(topicTitle, paperTitle) {
@@ -962,7 +876,7 @@
       if (type === 'online') {
         document.getElementById("onlinePaymentSection").classList.remove("hidden");
         document.getElementById("cashPaymentSection").classList.add("hidden");
-        document.getElementById("typeOnlineBtn").className = "py-2.5 px-3 rounded-xl text-xs font-bold border-2 border-[#071952] bg-blue-50 text-[#071952] transition text-center shadow-sm";
+        document.getElementById("typeOnlineBtn").className = "py-2.5 px-3 rounded-xl text-xs font-bold border-2 border-blue-600 bg-blue-50 text-blue-700 transition text-center shadow-sm";
         document.getElementById("typeCashBtn").className = "py-2.5 px-3 rounded-xl text-xs font-bold border-2 border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition text-center";
       } else {
         document.getElementById("onlinePaymentSection").classList.add("hidden");
@@ -978,7 +892,7 @@
       const buttons = document.querySelectorAll("#onlineMethodButtons .on-pay-btn");
       buttons.forEach(btn => {
         if (btn.innerText.includes(m === 'bKash' ? 'বিকাশ' : m === 'Nagad' ? 'নগদ' : m === 'Rocket' ? 'রকেট' : 'উপায়')) {
-          btn.className = "on-pay-btn py-2 text-xs font-bold rounded-lg border border-[#071952] bg-blue-50 text-[#071952] shadow-sm";
+          btn.className = "on-pay-btn py-2 text-xs font-bold rounded-lg border border-blue-600 bg-blue-50 text-blue-700 shadow-sm";
         } else {
           btn.className = "on-pay-btn py-2 text-xs font-bold rounded-lg border border-slate-200 bg-white text-slate-600";
         }
@@ -990,7 +904,8 @@
       alert(`নম্বরটি কপি করা হয়েছে: ${config.paymentNumber}`);
     }
 
-    function submitOnlinePaymentOrder() {
+    // --- CLOUD ORDER SUBMISSION ---
+    async function submitOnlinePaymentOrder() {
       const name = document.getElementById("onlineStudentNameInput").value.trim();
       const phone = document.getElementById("onlineSenderPhoneInput").value.trim();
       const trx = document.getElementById("onlineTrxIdInput").value.trim().toUpperCase();
@@ -1001,16 +916,19 @@
       }
 
       if (orders.some(o => o.trx === trx)) {
-        alert("এই TrxID দিয়ে ইতিমধ্যে একটি অর্ডার প্রক্রিয়াধীন রয়েছে!");
+        alert("এই TrxID দিয়ে ইতিমধ্যে একটি অর্ডার জমা দেওয়া আছে!");
         return;
       }
 
+      const orderNumber = `ORD-${Date.now().toString().slice(-6)}`;
+      const fileKey = `${selectedPaper} — ${selectedTopic}`.replace(" — ", "_");
+
       const newOrder = {
-        id: `ORD-${Date.now().toString().slice(-6)}`,
+        id: orderNumber,
         type: "online",
         name, phone, trx,
         topic: `${selectedPaper} — ${selectedTopic}`,
-        fileKey: `${selectedPaper}_${selectedTopic}`,
+        fileKey: fileKey,
         method: selectedOnlineMethod.toUpperCase(),
         amount: config.defaultPrice,
         status: "pending_verification",
@@ -1020,13 +938,28 @@
       orders.unshift(newOrder);
       saveOrders();
 
+      // Push to Supabase Cloud Database
+      if (supabase) {
+        try {
+          await supabase.from('payment_submissions').insert([{
+            payment_method: selectedOnlineMethod.toLowerCase(),
+            sender_number: phone,
+            transaction_id: trx,
+            verification_status: 'pending',
+            admin_note: `${name} | ${newOrder.topic}`
+          }]);
+        } catch (err) {
+          console.warn("সুপাবেস অর্ডার পুশ ত্রুটি:", err);
+        }
+      }
+
       document.getElementById("checkoutBody").classList.add("hidden");
       document.getElementById("checkoutSuccessScreen").classList.remove("hidden");
-      document.getElementById("successOrderHeadline").innerText = "অনলাইন পেমেন্ট সাবমিট হয়েছে!";
-      document.getElementById("successOrderMessage").innerText = `অর্ডার আইডি: ${newOrder.id}। অ্যাডমিন প্যানেল থেকে ট্রানজ্যাকশন যাচাই করার পর আপনার লাইব্রেরিতে ১ বছরের জন্য অ্যাক্সেস চালু হবে।`;
+      document.getElementById("successOrderHeadline").innerText = "অনলাইন পেমেন্ট ক্লাউডে জমা হয়েছে!";
+      document.getElementById("successOrderMessage").innerText = `অর্ডার আইডি: ${newOrder.id}। পরিচালক মো: রাহাত খান এসএমএস মিলিয়ে অনুমোদন দেওয়ার সাথে সাথে আপনার লাইব্রেরিতে পিডিএফ পড়ার সুবিধা চালু হয়ে যাবে।`;
     }
 
-    function submitCashPaymentOrder() {
+    async function submitCashPaymentOrder() {
       const name = document.getElementById("cashStudentNameInput").value.trim();
       const phone = document.getElementById("cashStudentPhoneInput").value.trim();
       const date = document.getElementById("cashHandoverDateInput").value;
@@ -1036,14 +969,17 @@
         return;
       }
 
+      const orderNumber = `CSH-${Date.now().toString().slice(-6)}`;
+      const fileKey = `${selectedPaper} — ${selectedTopic}`.replace(" — ", "_");
+
       const newOrder = {
-        id: `CSH-${Date.now().toString().slice(-6)}`,
+        id: orderNumber,
         type: "cash",
         name, phone,
         receiver: "মো: রাহাত খান",
         handoverDate: date || "আজকেই",
         topic: `${selectedPaper} — ${selectedTopic}`,
-        fileKey: `${selectedPaper}_${selectedTopic}`,
+        fileKey: fileKey,
         amount: config.defaultPrice,
         status: "pending_cash",
         date: new Date().toLocaleDateString('bn-BD')
@@ -1052,9 +988,23 @@
       orders.unshift(newOrder);
       saveOrders();
 
+      if (supabase) {
+        try {
+          await supabase.from('payment_submissions').insert([{
+            payment_method: 'cash',
+            sender_number: phone,
+            transaction_id: orderNumber,
+            verification_status: 'pending',
+            admin_note: `${name} (ক্যাশ রিকোয়েস্ট) | ${newOrder.topic}`
+          }]);
+        } catch (err) {
+          console.warn("সুপাবেস ক্যাশ পুশ ত্রুটি:", err);
+        }
+      }
+
       document.getElementById("checkoutBody").classList.add("hidden");
       document.getElementById("checkoutSuccessScreen").classList.remove("hidden");
-      document.getElementById("successOrderHeadline").innerText = "ক্যাশ পেমেন্ট রিকোয়েস্ট সফল!";
+      document.getElementById("successOrderHeadline").innerText = "ক্যাশ পেমেন্ট রিকোয়েস্ট ক্লাউডে সফল!";
       document.getElementById("successOrderMessage").innerText = `অর্ডার আইডি: ${newOrder.id}। মো: রাহাত খান নগদ টাকা বুঝে পাওয়ার পর অ্যাডমিন প্যানেল থেকে অনুমোদন দিলে পিডিএফ আনলক হবে।`;
     }
 
@@ -1063,7 +1013,7 @@
       if (entitlements.length === 0) {
         libraryContainer.innerHTML = `
           <div class="col-span-full py-8 text-center bg-slate-50 rounded-xl border border-slate-200">
-            <p class="text-xs text-slate-500 font-semibold">আপনার লাইব্রেরিতে এখনো কোনো অনুমোদিত শিট নেই।</p>
+            <p class="text-xs text-slate-500 font-semibold">আপনার লাইব্রেরিতে এখনো কোনো অনুমোদিত পিডিএফ নেই।</p>
           </div>
         `;
       } else {
@@ -1071,15 +1021,10 @@
           const parts = key.split("_");
           const paper = parts[0];
           const topic = parts[1];
-          const isOffline = offlineCachedPdfs.includes(key);
-
           return `
             <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
               <div>
-                <div class="flex items-center space-x-1.5">
-                  <span class="text-[10px] font-bold text-[#071952] bg-blue-100 px-2 py-0.5 rounded">${paper}</span>
-                  ${isOffline ? `<span class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">💾 অফলাইন সেভড</span>` : ''}
-                </div>
+                <span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">${paper}</span>
                 <h5 class="text-xs font-bold text-slate-900 mt-1">${topic}</h5>
               </div>
               <button onclick="openReader('${topic}', '${paper}', true)" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg shadow transition">
@@ -1104,7 +1049,7 @@
               <div class="flex items-center space-x-2">
                 <span class="font-bold text-slate-900">${o.id}</span>
                 <span class="text-[10px] text-slate-400">• ${o.date}</span>
-                <span class="font-bold text-[#071952]">৳${o.amount}</span>
+                <span class="font-bold text-blue-700">৳${o.amount}</span>
               </div>
               <p class="text-slate-600 font-medium mt-0.5">${o.topic}</p>
               <p class="text-[11px] text-slate-500">${o.type === 'online' ? `অনলাইন (${o.method}) — TrxID: ${o.trx}` : `সরাসরি ক্যাশ (প্রাপক: ${o.receiver})`}</p>
@@ -1121,15 +1066,50 @@
 
     function openAdminModal() { openModal("adminModal"); }
 
-    function checkAdminLogin() {
-      const pin = document.getElementById("adminPinInput").value;
-      if (pin === "rahat2027" || pin === config.paymentNumber || pin === "admin") {
+    async function checkAdminLogin() {
+      const pin = document.getElementById("adminPinInput").value.trim();
+      const activePassword = config.adminPassword || "rahat2027";
+
+      if (pin === activePassword || pin === "rahat2027") {
         document.getElementById("adminLoginBox").classList.add("hidden");
         document.getElementById("adminDashboardBox").classList.remove("hidden");
         populateAdminSelectors();
+        await fetchCloudAdminOrders();
         renderAdminDashboard();
       } else {
-        alert("ভুল পিন! ডিফল্ট পিন: rahat2027");
+        alert("ভুল গোপন পিন! সঠিক পাসওয়ার্ড দিন।");
+      }
+    }
+
+    // --- FETCH CLOUD ORDERS FROM SUPABASE ---
+    async function fetchCloudAdminOrders() {
+      if (!supabase) return;
+      try {
+        const { data, error } = await supabase.from('payment_submissions').select('*').order('created_at', { ascending: false });
+        if (data && data.length > 0) {
+          data.forEach(dbItem => {
+            const exists = orders.some(o => o.trx === dbItem.transaction_id || o.id === dbItem.transaction_id);
+            if (!exists) {
+              const noteParts = (dbItem.admin_note || "").split(" | ");
+              orders.push({
+                id: dbItem.transaction_id.startsWith("CSH-") ? dbItem.transaction_id : `ORD-${dbItem.id.slice(0,6)}`,
+                type: dbItem.payment_method === 'cash' ? 'cash' : 'online',
+                name: noteParts[0] || "শিক্ষার্থী",
+                phone: dbItem.sender_number,
+                trx: dbItem.transaction_id,
+                topic: noteParts[1] || "রিভিশন শিট",
+                fileKey: (noteParts[1] || "").replace(" — ", "_"),
+                method: dbItem.payment_method.toUpperCase(),
+                amount: config.defaultPrice,
+                status: dbItem.verification_status === 'approved' ? 'approved' : 'pending_verification',
+                date: new Date(dbItem.created_at).toLocaleDateString('bn-BD')
+              });
+            }
+          });
+          saveOrders();
+        }
+      } catch (e) {
+        console.warn("ক্লাউড অর্ডার ফেচ ব্যর্থ:", e);
       }
     }
 
@@ -1137,6 +1117,36 @@
       document.getElementById("adminLoginBox").classList.remove("hidden");
       document.getElementById("adminDashboardBox").classList.add("hidden");
       document.getElementById("adminPinInput").value = "";
+    }
+
+    function changeAdminPassword() {
+      const current = document.getElementById("currentAdminPassInput").value.trim();
+      const newPass = document.getElementById("newAdminPassInput").value.trim();
+      const confirmPass = document.getElementById("confirmAdminPassInput").value.trim();
+
+      const activePassword = config.adminPassword || "rahat2027";
+
+      if (current !== activePassword && current !== "rahat2027") {
+        alert("বর্তমান পাসওয়ার্ডটি সঠিক নয়!");
+        return;
+      }
+      if (!newPass || newPass.length < 4) {
+        alert("নতুন পাসওয়ার্ড কমপক্ষে ৪ অক্ষরের হতে হবে!");
+        return;
+      }
+      if (newPass !== confirmPass) {
+        alert("নতুন দুটি পাসওয়ার্ডের মিল পাওয়া যায়নি!");
+        return;
+      }
+
+      config.adminPassword = newPass;
+      localStorage.setItem("rahat_academy_config", JSON.stringify(config));
+
+      document.getElementById("currentAdminPassInput").value = "";
+      document.getElementById("newAdminPassInput").value = "";
+      document.getElementById("confirmAdminPassInput").value = "";
+
+      alert(`আলহামদুলিল্লাহ! পাসওয়ার্ড সফলভাবে পরিবর্তিত হয়েছে। নতুন পাসওয়ার্ড: ${newPass}`);
     }
 
     function setAdminTab(tabId) {
@@ -1153,7 +1163,7 @@
       ];
       buttons.forEach(b => {
         const el = document.getElementById(b.id);
-        el.className = b.tab === tabId ? "px-3 py-1.5 rounded-lg bg-[#071952] text-[#FABC3F] shrink-0" : "px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0";
+        el.className = b.tab === tabId ? "px-3 py-1.5 rounded-lg bg-blue-600 text-white shrink-0" : "px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0";
       });
     }
 
@@ -1166,7 +1176,7 @@
         p.topics.forEach(t => {
           const key = `${p.paper}_${t.title}`;
           const isUp = !!uploadedPdfs[key];
-          optionsHtml += `<option value="${key}">${isUp ? '✓ [PDF প্রস্তুত] ' : ''}${p.paper} — ${t.title}</option>`;
+          optionsHtml += `<option value="${key}">${isUp ? '✓ [ক্লাউড সক্রিয়] ' : ''}${p.paper} — ${t.title}</option>`;
         });
       });
 
@@ -1228,7 +1238,7 @@
       }
     }
 
-    function approveOrder(orderId) {
+    async function approveOrder(orderId) {
       const order = orders.find(o => o.id === orderId);
       if (!order) return;
 
@@ -1237,24 +1247,39 @@
 
       saveOrders();
       saveEntitlements();
+
+      // Cloud status update
+      if (supabase && order.trx) {
+        try {
+          await supabase.from('payment_submissions').update({ verification_status: 'approved' }).eq('transaction_id', order.trx);
+        } catch(e) {}
+      }
+
       renderAdminDashboard();
       filterCatalog();
       renderStudentDashboard();
-      alert(`অর্ডার (${order.id}) সফলভাবে অনুমোদিত হয়েছে!`);
+      alert(`অর্ডার (${order.id}) সফলভাবে অনুমোদিত হয়েছে এবং ক্লাউড অ্যাক্সেস চালু হয়েছে!`);
     }
 
-    function rejectOrder(orderId) {
+    async function rejectOrder(orderId) {
       const order = orders.find(o => o.id === orderId);
       if (!order) return;
 
       order.status = "rejected";
       saveOrders();
+
+      if (supabase && order.trx) {
+        try {
+          await supabase.from('payment_submissions').update({ verification_status: 'rejected' }).eq('transaction_id', order.trx);
+        } catch(e) {}
+      }
+
       renderAdminDashboard();
       renderStudentDashboard();
       alert(`অর্ডার (${order.id}) বাতিল করা হয়েছে।`);
     }
 
-    function handleManualOfflineSale() {
+    async function handleManualOfflineSale() {
       const name = document.getElementById("manualSaleStudentName").value.trim();
       const phone = document.getElementById("manualSaleStudentPhone").value.trim();
       const fileKey = document.getElementById("manualSaleTopicSelect").value;
@@ -1267,9 +1292,10 @@
 
       const parts = fileKey.split("_");
       const topicName = `${parts[0]} — ${parts[1]}`;
+      const orderId = `DIR-${Date.now().toString().slice(-6)}`;
 
       const manualOrder = {
-        id: `DIR-${Date.now().toString().slice(-6)}`,
+        id: orderId,
         type: "cash",
         name, phone, receiver: "মো: রাহাত খান",
         topic: topicName,
@@ -1285,46 +1311,58 @@
       saveOrders();
       saveEntitlements();
 
+      if (supabase) {
+        try {
+          await supabase.from('payment_submissions').insert([{
+            payment_method: 'cash',
+            sender_number: phone,
+            transaction_id: orderId,
+            verification_status: 'approved',
+            admin_note: `${name} (সরাসরি অফলাইন সেল) | ${topicName}`
+          }]);
+        } catch(e) {}
+      }
+
       document.getElementById("manualSaleStudentName").value = "";
       document.getElementById("manualSaleStudentPhone").value = "";
 
       renderAdminDashboard();
       filterCatalog();
       renderStudentDashboard();
-      alert(`অফলাইন ক্যাশ সেল সফল! "${topicName}" শিক্ষার্থীর জন্য লাইব্রেরিতে উন্মুক্ত হয়েছে।`);
+      alert(`অফলাইন ক্যাশ সেল সফল! "${topicName}" ক্লাউডে স্থায়ীভাবে আনলক হয়েছে।`);
     }
 
-    function handleAdminPdfUpload() {
+    // --- PERMANENT CLOUD / GOOGLE DRIVE LINK SAVER ---
+    async function handleCloudPdfLinkSave() {
       const fileKey = document.getElementById("adminUploadTopicSelect").value;
-      const input = document.getElementById("adminPdfFileInput");
+      const urlInput = document.getElementById("adminCloudPdfUrlInput").value.trim();
 
-      if (!input.files || input.files.length === 0) {
-        alert("দয়া করে ফোন থেকে একটি PDF ফাইল সিলেক্ট করুন!");
+      if (!urlInput) {
+        alert("দয়া করে গুগল ড্রাইভ বা ক্লাউডের শেয়ার লিংক দিন!");
         return;
       }
-
-      const file = input.files[0];
-      if (file.type !== "application/pdf") {
-        alert("শুধুমাত্র PDF ফরম্যাট আপলোড করা যাবে!");
-        return;
-      }
-
-      const blobUrl = URL.createObjectURL(file);
-      const sizeFormatted = (file.size / (1024 * 1024)).toFixed(2) + " MB";
 
       uploadedPdfs[fileKey] = {
-        name: file.name,
-        size: sizeFormatted,
-        url: blobUrl,
+        url: urlInput,
         date: new Date().toLocaleDateString('bn-BD')
       };
 
-      try {
-        localStorage.setItem("rahat_uploaded_pdfs", JSON.stringify(uploadedPdfs));
-      } catch(e) {}
+      localStorage.setItem("rahat_uploaded_pdfs", JSON.stringify(uploadedPdfs));
 
-      alert(`সফল হয়েছে! "${file.name}" ফাইলটি এই অধ্যায়ে সংরক্ষিত হয়েছে।`);
-      input.value = "";
+      // Push to Supabase Cloud Settings so all students everywhere see this PDF
+      if (supabase) {
+        try {
+          await supabase.from('system_settings').upsert({
+            key: 'uploaded_pdfs',
+            value: uploadedPdfs
+          });
+        } catch(e) {
+          console.warn("ক্লাউড সেটিংস সেভ ওয়ার্নিং:", e);
+        }
+      }
+
+      document.getElementById("adminCloudPdfUrlInput").value = "";
+      alert("আলহামদুলিল্লাহ! এই অধ্যায়ের স্থায়ী ক্লাউড লিংক সফলভাবে সংরক্ষিত হয়েছে। এখন বিশ্বের যে কোনো প্রান্ত থেকে যেকোনো ছাত্র এই শিটটি লাইভ পড়তে পারবে।");
       populateAdminSelectors();
       renderAdminDashboard();
       filterCatalog();
@@ -1334,7 +1372,6 @@
       config.paymentNumber = document.getElementById("configPaymentNumber").value.trim();
       config.defaultPrice = parseInt(document.getElementById("configDefaultPrice").value) || 30;
       config.whatsappLink = document.getElementById("configWhatsappLink").value.trim();
-      config.callNumber = document.getElementById("configCallNumber").value.trim();
 
       localStorage.setItem("rahat_academy_config", JSON.stringify(config));
       applyConfigToDOM();
@@ -1345,30 +1382,7 @@
     function saveOrders() { localStorage.setItem("rahat_orders", JSON.stringify(orders)); }
     function saveEntitlements() { localStorage.setItem("rahat_entitlements", JSON.stringify(entitlements)); }
 
-    // --- PWA SERVICE WORKER REGISTRATION ---
-    function initPWA() {
-      let deferredPrompt;
-      const pwaBtn = document.getElementById('pwaInstallBtn');
-
-      window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        pwaBtn.classList.remove('hidden');
-      });
-
-      pwaBtn.addEventListener('click', async () => {
-        if (deferredPrompt) {
-          deferredPrompt.prompt();
-          const { outcome } = await deferredPrompt.userChoice;
-          if (outcome === 'accepted') {
-            pwaBtn.classList.add('hidden');
-          }
-          deferredPrompt = null;
-        }
-      });
-    }
-
     window.addEventListener("DOMContentLoaded", initApp);
   </script>
 </body>
-              </html>
+</html>
