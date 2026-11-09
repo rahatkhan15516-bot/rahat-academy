@@ -123,6 +123,58 @@ footer h4{color:#fff;margin:0 0 10px}footer a{display:block;padding:3px 0;color:
 .skel{height:64px;border-radius:14px;background:linear-gradient(90deg,#eef1f6,#f8fafc,#eef1f6);background-size:200% 100%;animation:sk 1.3s infinite;margin-bottom:10px}
 @keyframes sk{to{background-position:-200% 0}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===== premium layer ===== */
+header{border-bottom:0;box-shadow:0 1px 0 rgba(212,162,58,.35),0 8px 24px rgba(5,12,28,.35)}
+.logo{box-shadow:0 4px 14px rgba(212,162,58,.4),inset 0 1px 0 rgba(255,255,255,.5)}
+.hero{padding-bottom:26px;background:
+  radial-gradient(900px 380px at 85% -10%,rgba(212,162,58,.16),transparent 60%),
+  radial-gradient(1000px 460px at 10% 0,#1e4688 0,transparent 62%),
+  linear-gradient(180deg,#0a1b38,#0e2447 70%,#122a52)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%)}
+.hero .wrap{position:relative;z-index:1}
+.slides{min-height:300px}
+.slide{padding:34px 0 8px;gap:16px}
+.slide h1{background:linear-gradient(180deg,#fff 35%,#f1dc9f);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.2px}
+.tag{background:rgba(212,162,58,.1);box-shadow:inset 0 0 0 1px rgba(240,201,104,.4);border:0;letter-spacing:.3px}
+.dots{position:static;margin-top:6px}
+.dots .wrap{padding:0}
+.trust{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.trust span{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:#dbe5f3;border-radius:99px;padding:6px 12px;font-size:13px;font-weight:500;backdrop-filter:blur(4px)}
+.trust i{color:var(--gold2);font-size:12px}
+.btn.gold{box-shadow:0 6px 18px rgba(212,162,58,.35),inset 0 1px 0 rgba(255,255,255,.5)}
+.searchbox{margin-top:-28px}
+.searchbox input{box-shadow:0 14px 34px rgba(8,18,40,.18),0 0 0 1px rgba(212,162,58,.25)}
+.sh h2::after{content:"";display:block;width:44px;height:3px;border-radius:3px;margin-top:7px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+section.s{padding-top:50px}
+.cat{border-radius:18px;background:linear-gradient(180deg,#fff,#fbfcfe)}
+.cat .ic{box-shadow:0 6px 14px rgba(11,29,58,.25),inset 0 0 0 1px rgba(240,201,104,.45);width:50px;height:50px;border-radius:15px}
+.cat.on{box-shadow:0 10px 28px rgba(212,162,58,.28);background:#fffdf6}
+.paper{border-radius:18px}
+.paper[open]{border-color:rgba(212,162,58,.55);box-shadow:0 12px 30px rgba(11,29,58,.12)}
+.paper>summary{padding:17px 16px;font-size:16px}
+.tp{padding:13px 16px;transition:background .15s}.tp:hover{background:#fafbfd}
+.tp .no{flex:none;width:28px;height:28px;border-radius:9px;background:#f1f4f9;color:#64748b;font-size:13px;font-weight:600;display:grid;place-items:center}
+.price{background:#f3f6fb;padding:3px 10px;border-radius:99px;font-size:14px}
+.box{position:relative;overflow:hidden;border-radius:18px}
+.box::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent)}
+.box .ic{box-shadow:inset 0 0 0 1px #f1dfb0}
+.steps li{border-radius:16px;box-shadow:var(--sh)}
+.steps li::before{background:linear-gradient(135deg,var(--navy),var(--navy3));box-shadow:0 0 0 3px #fdf6e3,0 0 0 4px var(--gold)}
+.about{position:relative;overflow:hidden;border:1px solid rgba(240,201,104,.3)}
+.about::after{content:"";position:absolute;right:-50px;top:-50px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(212,162,58,.28),transparent 70%)}
+footer{border-top:3px solid transparent;border-image:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold)) 1;background:linear-gradient(180deg,#0b1d3a,#08152b)}
+.fab{gap:10px;transition:bottom .2s}.fab a{width:48px;height:48px;font-size:23px;box-shadow:0 8px 20px rgba(0,0,0,.3),0 0 0 3px rgba(255,255,255,.9)}
+body.hascart .fab{bottom:86px}
+.slides{min-height:270px}
+@media(min-width:960px){.cats{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}}
+.cbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:44;max-width:560px;margin:0 auto;background:rgba(11,29,58,.97);color:#fff;border:1px solid rgba(240,201,104,.5);border-radius:18px;padding:10px 10px 10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 14px 34px rgba(5,12,28,.4);animation:up .3s both}
+.cbar b{display:block;line-height:1.2}.cbar span{color:var(--gold2);font-weight:700}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.cat,.box,.paper,.offer,.steps li{animation:up .5s both}
+.md{border-top:3px solid var(--gold)}
 </style>
 </head>
 <body>
@@ -141,6 +193,7 @@ footer h4{color:#fff;margin:0 0 10px}footer a{display:block;padding:3px 0;color:
   <div class="wrap">
     <div class="slides" id="slides"></div>
     <div class="dots" id="dots"></div>
+    <div class="trust" id="trust"></div>
   </div>
 </section>
 <div class="searchbox"><input id="q" type="search" placeholder="অধ্যায় বা বিষয়ের নাম দিয়ে খুঁজুন (যেমন: ভেক্টর, অপরিচিতা)" aria-label="খুঁজুন"><i class="fa-solid fa-magnifying-glass"></i></div>
@@ -187,6 +240,7 @@ footer h4{color:#fff;margin:0 0 10px}footer a{display:block;padding:3px 0;color:
   <div class="copy">© ২০২৬ রাহাত একাডেমি। সর্বস্বত্ব সংরক্ষিত।</div>
 </div></footer>
 
+<div class="cbar hidden" id="cbar"><div><b id="cbN"></b><span id="cbT"></span></div><button class="btn gold" data-act="cart">কার্ট দেখুন <i class="fa-solid fa-arrow-right"></i></button></div>
 <div class="fab" id="fab"></div>
 <div id="layer"></div>
 
@@ -242,6 +296,7 @@ function renderHero(){
   const sub=`${bn(papers.length)}টি পত্র • ${bn(topics.length)}টি টপিক`;
   $('#slides').innerHTML=sl.map((s,i)=>`<div class="slide ${i===0?'on':''}"><span class="tag">${esc(s.tag)}</span><h1>${esc(s.title)}</h1><p>${esc(s.text)}${i===0&&papers.length?' ('+sub+')':''}</p><div><a class="btn gold" href="${esc(safeUrl(s.href)==='#'&&!(s.href||'').startsWith('#')?'#catalog':s.href)}">${esc(s.cta)} <i class="fa-solid fa-arrow-down"></i></a></div></div>`).join('');
   $('#dots').innerHTML=`<div class="wrap" style="display:flex;gap:7px">`+sl.map((_,i)=>`<button class="${i===0?'on':''}" data-act="slide" data-i="${i}" aria-label="স্লাইড ${i+1}"></button>`).join('')+'</div>';
+  $('#trust').innerHTML=[['fa-layer-group',bn(papers.length)+'টি পত্র'],['fa-list-check',bn(topics.length)+'টি টপিক'],['fa-lock','প্রাইভেট লাইব্রেরি'],['fa-calendar-check','১ বছর অ্যাক্সেস'],['fa-shield-halved','যাচাই করে অনুমোদন']].map(([i,t])=>`<span><i class="fa-solid ${i}"></i>${t}</span>`).join('');
   clearInterval(timer);if(sl.length>1)timer=setInterval(()=>goSlide((si+1)%sl.length),5500);
 }
 function goSlide(i){si=i;document.querySelectorAll('.slide').forEach((e,k)=>e.classList.toggle('on',k===i));document.querySelectorAll('#dots button').forEach((e,k)=>e.classList.toggle('on',k===i))}
@@ -261,7 +316,7 @@ function renderCatalog(){
   const html=papers.filter(p=>!catFilter||p.subject===catFilter).map(p=>{
     const ts=topics.filter(t=>t.paper_id===p.id&&(!q||t.title.toLowerCase().includes(q)||(t.author||'').toLowerCase().includes(q)||p.name.toLowerCase().includes(q)));
     if(!ts.length)return '';shown+=ts.length;
-    return `<details class="paper" ${(q||catFilter)?'open':''}><summary><span>${esc(p.name)} <small>• ${bn(ts.length)}টি টপিক</small></span><i class="fa-solid fa-chevron-down"></i></summary>${ts.map(t=>`<div class="tp"><div class="t"><div>${esc(t.title)}</div>${t.author?`<small>${esc(t.author)}</small>`:''}</div>${owned.has(t.id)?`<span class="owned"><i class="fa-solid fa-circle-check"></i> কেনা আছে</span>`:`<span class="price">${money(t.price)}</span><button class="btn sm ${cart.has(t.id)?'ghost':'gold'}" data-act="add" data-id="${t.id}">${cart.has(t.id)?'কার্টে আছে':'কার্টে যোগ করুন'}</button>`}</div>`).join('')}</details>`}).join('');
+    return `<details class="paper" ${(q||catFilter)?'open':''}><summary><span>${esc(p.name)} <small>• ${bn(ts.length)}টি টপিক</small></span><i class="fa-solid fa-chevron-down"></i></summary>${ts.map((t,i)=>`<div class="tp"><span class="no">${bn(i+1)}</span><div class="t"><div>${esc(t.title)}</div>${t.author?`<small>${esc(t.author)}</small>`:''}</div>${owned.has(t.id)?`<span class="owned"><i class="fa-solid fa-circle-check"></i> কেনা আছে</span>`:`<span class="price">${money(t.price)}</span><button class="btn sm ${cart.has(t.id)?'ghost':'gold'}" data-act="add" data-id="${t.id}">${cart.has(t.id)?'কার্টে আছে':'কার্টে যোগ করুন'}</button>`}</div>`).join('')}</details>`}).join('');
   $('#catalogBox').innerHTML=html||'<div class="empty"><i class="fa-regular fa-face-frown" style="font-size:28px"></i><p>কিছু পাওয়া যায়নি। অন্য শব্দে খুঁজুন।</p></div>';
   $('#catSub').textContent=papers.length?`HSC ২০২৭ — মোট ${bn(papers.length)}টি পত্রের ${bn(topics.length)}টি টপিক`+(q||catFilter?` • দেখানো হচ্ছে ${bn(shown)}টি`:''):'';
 }
@@ -283,7 +338,9 @@ function renderFab(){
 
 /* ---------- cart ---------- */
 function saveCart(){ls('ra_cart',[...cart])}
-function updCart(){const n=cart.size;const e=$('#cartN');e.textContent=bn(n);e.classList.toggle('hidden',!n)}
+function updCart(){const n=cart.size;const e=$('#cartN');e.textContent=bn(n);e.classList.toggle('hidden',!n);
+  $('#cbar').classList.toggle('hidden',!n);document.body.classList.toggle('hascart',!!n);
+  if(n){$('#cbN').textContent=bn(n)+'টি PDF';$('#cbT').textContent=money(cartTotal())}}
 function addCart(id){if(owned.has(id))return;cart.has(id)?cart.delete(id):cart.add(id);saveCart();updCart();renderCatalog();if(cart.has(id))toast('কার্টে যোগ হয়েছে')}
 const cartItems=()=>[...cart].map(id=>topics.find(t=>t.id===id)).filter(Boolean);
 const cartTotal=()=>cartItems().reduce((a,t)=>a+t.price,0);
@@ -300,6 +357,8 @@ function openCart(){
 
 /* ---------- auth / checkout ---------- */
 async function googleLogin(next){
+  try{const r=await fetch(SB_URL+'/auth/v1/settings',{headers:{apikey:SB_KEY}});const j=await r.json();
+    if(!(j.external&&j.external.google)){toast('Google লগইন এখনো চালু হয়নি। মালিক চালু করলেই কাজ করবে।',true);return}}catch(e){}
   ls('ra_next',next||null);
   const {error}=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}});
   if(error){toast('Google লগইন এখনো চালু হয়নি। মালিককে জানান। ('+error.message+')',true)}
@@ -400,6 +459,8 @@ const A={
 };
 document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(b&&A[b.dataset.act]){if(b.tagName==='A')e.preventDefault();A[b.dataset.act](b.dataset,e)}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();if((e.key==='Enter'||e.key===' ')&&e.target.matches('.cat')){e.preventDefault();e.target.click()}});
+let tx=0;$('#slides').addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+$('#slides').addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx,n=document.querySelectorAll('.slide').length;if(Math.abs(d)>50&&n>1){goSlide((si+(d<0?1:n-1))%n);clearInterval(timer)}},{passive:true});
 $('#q').addEventListener('input',e=>{query=e.target.value;renderCatalog();if(query)$('#catalog').scrollIntoView({block:'start'})});
 
 (async()=>{
